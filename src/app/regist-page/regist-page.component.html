@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+  <input type="text" placeholder="Name" formControlName="name" ><br>
+  <p style="color: red" *ngIf="form.get('name').invalid && form.get('name').touched">Enter a valid name!</p>
+  <input type="text" placeholder="Surname"><br>
+  <input type="text" placeholder="Email" formControlName="email"><br>
+  <p style="color: red" *ngIf="form.get('email').touched && form.get('email').errors">Enter a valid email!</p>
+  <input type="text" placeholder="Phone"><br>
+  <input type="password" #input1 placeholder="Password"
+         (focusout)='checkForPass(input1.value,"boolPass","passInput")'><br>
+  <p style="color: red;" *ngIf="boolPass">Enter the correct password!</p>
+  <input type="password" #input2 placeholder="RepeatPassword"
+         (focusout)='checkForPass(input2.value,"boolRepeatPass","repeatPassinput")'><br>
+  <p style="color: red;" *ngIf="boolRepeatPass">Repeat password incorrect!</p>
+  <button class="btn btn-info" (click)="saveRegistration()">Registration</button>
+</form>
+
+

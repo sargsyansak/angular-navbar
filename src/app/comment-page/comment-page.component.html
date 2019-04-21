@@ -1,0 +1,11 @@
+<div class="col-md-5 col-xs-offset-2">
+  <form [formGroup]="commentForm">
+    <textarea formControlName="text" class="form-control" placeholder='text' rows="6"></textarea>
+    <p style=" color: red" *ngIf="commentForm.get('text').invalid && commentForm.get('text').touched && boolComment">
+      Please enter a comment</p>
+    <input type="text" placeholder="card name" formControlName="card" class="form-control">
+    <p style="color: red" *ngIf="commentForm.get('card').invalid && commentForm.get('card').touched && boolComment2">
+      Please enter card number</p>
+    <button class="btn btn-info" (click)="saveComment()">Comment</button>
+  </form>
+</div>
